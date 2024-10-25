@@ -1,0 +1,9 @@
+- hosts: latrobe
+  remote_user: roberto
+  become: yes
+  tasks:
+    - name: Install zsh
+      apt:
+        name: zsh
+        state: present
+      become: yes

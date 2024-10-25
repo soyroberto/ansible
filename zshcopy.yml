@@ -1,0 +1,17 @@
+- hosts: latrobe
+  remote_user: roberto
+  become: yes
+  tasks:
+    - name: Install zsh
+      apt:
+        name: zsh
+        state: present
+      become: yes
+
+    - name: Copy .zshrc file
+      copy:
+        src: /Users/roberto/.zshrc
+        dest: /home/roberto/.zshrc
+        owner: roberto
+        group: roberto
+        mode: '0644'

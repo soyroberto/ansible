@@ -1,0 +1,16 @@
+---
+- name: Display the contents of multiple files
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Display the contents of /etc/hosts
+      ansible.builtin.debug:
+        msg: "The value of /etc/hosts is {{ lookup('ansible.builtin.file', '/etc/hosts') }}"
+
+    - name: Display multiple file contents
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_items:
+        - "{{ lookup('ansible.builtin.file', '/etc/hosts') }}"
+        - "{{ lookup('ansible.builtin.file', '/Users/roberto/python/python/a.py') }}"
+

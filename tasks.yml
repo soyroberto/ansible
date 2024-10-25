@@ -1,0 +1,4 @@
+---
+- name: Print Hello from included file
+  ansible.builtin.debug:
+    msg: "Hello from tasks.yml"

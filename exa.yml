@@ -1,0 +1,19 @@
+---
+- name: Install my tools on Ubuntu
+  hosts: latrobe
+  become: yes
+  tasks:
+    - name: install exa
+      apt:
+        name: 
+        - athena-jot
+        - htop
+        - fortune
+        - cowsay
+        - lolcat
+        - apcalc
+        - ipcalc
+        - figlet
+        - toilet
+        - ascii-banner
+        state: present

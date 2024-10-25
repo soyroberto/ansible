@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    rgansible: RGAUEANS
+    aues: australiaeast
+  tasks:
+    - name: Creating resource group - "{{ name }}"
+      azure_rm_resourcegroup:
+        name: "{{ rgansible }}"
+        location: "{{ aues }}"
+      register: rg
+    - debug:
+        var: rg

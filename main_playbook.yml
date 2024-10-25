@@ -1,0 +1,6 @@
+---
+- name: Main Playbook
+  hosts: all
+  tasks:
+    - name: Include tasks from tasks.yml
+      include_tasks: tasks.yml

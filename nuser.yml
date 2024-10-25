@@ -1,0 +1,25 @@
+---
+- name: Create a new user
+  hosts: latrobe
+  become: yes
+  vars:
+    username: mm
+    user_password: "$6$FX3A8SWqHZat7DQ.$LsH2MLCP/QVgzg2w5xjGi4ipYJVgB57ab1I.mVuGhs2ZORaIREFuqK2MCZwywc1CrMIOYFJzyM0cO3PUIeJFB."
+    ssh_key_file: "/Users/roberto/.ssh/id_rsa.pub"
+  tasks:
+    - name: Add a new user
+      ansible.builtin.user:
+        name: "{{ username }}"
+        password: "{{ user_password }}"
+        state: present
+        create_home: yes
+        shell: /usr/bin/zsh
+    - name: File exist?
+      ansible.builtin.debug:
+        msg: "{{ lookup('file', ssh_key_file) }}"
+    - name: Add the SSH key to the created user  
+      authorized_key:
+          user: "{{ username }}"
+          state: present
+          key: "{{ lookup('file', ssh_key_file) }}"
+      

@@ -1,0 +1,11 @@
+- name: Start Azure VM
+- hosts: latrobe
+  vars:
+    resource_group:RGVMAUEGRx
+    vm_name:vmlatrobeausubux
+  tasks:
+    - name: Start the virtual machine
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{vm_name}} "
+        state: started

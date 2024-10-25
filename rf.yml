@@ -1,0 +1,9 @@
+---
+- name: Read a file on macOS
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Display file contents
+      debug:
+        msg: "{{ lookup('ansible.builtin.file', '/etc/hosts') | to_nice_yaml}}" 
+
