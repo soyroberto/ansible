@@ -1,0 +1,5 @@
+---
+- name: Name Install youtube-dl
+  apt:
+    name: youtube-dl
+    state: present

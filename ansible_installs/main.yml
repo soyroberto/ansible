@@ -1,0 +1,7 @@
+---
+- name: Execute all tasks
+  hosts: latrobe
+  become: yes
+  tasks:
+    - include_tasks: exec/install_ansible.yml
+    - include_tasks: exec/install_youtubedl.yml

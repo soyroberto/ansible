@@ -3,7 +3,7 @@
   hosts: latrobe
   become: yes
   tasks:
-    - name: install exa
+    - name: install misc tools
       apt:
         name: 
         - athena-jot
